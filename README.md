@@ -2,7 +2,7 @@
 
 A macOS menu bar app that keeps your MagSafe charging LED in sync with your actual battery state and charge limits.
 
-macOS sets a charge limit (e.g. 80%) to protect battery health, but the MagSafe LED doesn't reflect this — it stays orange even when charging has stopped. MagSync fixes that by writing the correct LED state directly to the SMC.
+macOS sets a charge limit (e.g. 80%) to protect battery health, but the MagSafe LED doesn't reflect this - it stays orange even when charging has stopped. MagSync fixes that by writing the correct LED state directly to the SMC.
 
 ## LED States
 
@@ -31,11 +31,11 @@ macOS sets a charge limit (e.g. 80%) to protect battery health, but the MagSafe 
 
 MagSync has three main components:
 
-- **BatteryMonitor** — listens for IOKit power state changes in real time
-- **LEDController** — pure state machine that maps (battery %, charge limit, temperature) → LED state
-- **SMCWriteClient** — invokes a minimal setuid helper to write the `ACLC` SMC key
+- **BatteryMonitor**: listens for IOKit power state changes in real time
+- **LEDController**: pure state machine that maps (battery %, charge limit, temperature) → LED state
+- **SMCWriteClient**: invokes a minimal setuid helper to write the `ACLC` SMC key
 
-Privilege separation is used: the main app runs as your user; only the tiny `smc-write` helper runs as root, and it only accepts the specific key/value pairs needed for LED control.
+Privilege separation is used. The main app runs as your user; only the tiny `smc-write` helper runs as root, and it only accepts the specific key/value pairs needed for LED control.
 
 ## Building from Source
 
