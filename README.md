@@ -15,8 +15,8 @@ macOS sets a charge limit (e.g. 80%) to protect battery health, but the MagSafe 
 
 ## Requirements
 
-- macOS 15 (Sequoia) or later
-- Apple Silicon Mac with MagSafe
+- macOS 26.4 (Tahoe) or later
+- Apple Silicon Mac with MagSafe 3
 
 ## Build & Install
 
