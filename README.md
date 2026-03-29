@@ -68,3 +68,10 @@ Scripts/
 ├── install.sh                    # Developer install (no PKG)
 └── pkg-scripts/postinstall       # Sets setuid on smc-write during install
 ```
+
+## Acknowledgments
+
+- [SMCKit](https://github.com/srimanachanta/SMCKit) — SMC access library
+- [AsahiLinux](https://asahilinux.org/) — SMC key reverse engineering
+- [Battery-Toolkit](https://github.com/mhaeuser/Battery-Toolkit) — SMC key documentation
+
