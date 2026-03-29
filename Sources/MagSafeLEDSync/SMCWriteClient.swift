@@ -22,6 +22,14 @@ final class SMCWriteClient {
         }
     }
 
+    /// Returns true if smc-write is installed at the expected path with the setuid bit set.
+    static func isHelperInstalled() -> Bool {
+        guard FileManager.default.fileExists(atPath: helperPath) else { return false }
+        guard let attrs = try? FileManager.default.attributesOfItem(atPath: helperPath),
+              let perms = attrs[.posixPermissions] as? Int else { return false }
+        return (perms & 0o4000) != 0
+    }
+
     /// Write an ACLC value if it differs from the last written value.
     /// Skips the write if disabled or if the value hasn't changed.
     func writeLED(_ value: ACLCValue) {

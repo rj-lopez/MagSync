@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+HELPER=/usr/local/bin/smc-write
+
+# Set correct ownership and setuid bit
+chown root:wheel "$HELPER"
+chmod 4755 "$HELPER"
+
+# Remove quarantine attribute if present
+xattr -d com.apple.quarantine "$HELPER" 2>/dev/null || true
+
+# Load the LaunchAgent for the installing user so the app starts immediately
+LAUNCH_AGENT=/Library/LaunchAgents/com.rjlopez.magsync.plist
+if [ -f "$LAUNCH_AGENT" ] && [ -n "${USER:-}" ] && [ "$USER" != "root" ]; then
+    sudo -u "$USER" launchctl load "$LAUNCH_AGENT" 2>/dev/null || true
+fi
+
+exit 0

@@ -11,6 +11,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusBar: StatusBarController!
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        if !SMCWriteClient.isHelperInstalled() {
+            let alert = NSAlert()
+            alert.messageText = "MagSync Setup Required"
+            alert.informativeText = "The smc-write helper is not installed. Please run the MagSync installer package to complete setup."
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+        }
+
         statusBar = StatusBarController()
 
         statusBar.onToggle = { [weak self] enabled in
