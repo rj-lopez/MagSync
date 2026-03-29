@@ -50,3 +50,10 @@ Sources/
 ├── SMCKit/           # Reusable SMC read/write library
 └── smc-write/        # Setuid helper for privileged SMC writes
 ```
+
+## Acknowledgments
+
+- [SMCKit](https://github.com/srimanachanta/SMCKit) — SMC access library
+- [AsahiLinux](https://asahilinux.org/) — SMC key reverse engineering
+- [Battery-Toolkit](https://github.com/mhaeuser/Battery-Toolkit) — SMC key documentation
+
