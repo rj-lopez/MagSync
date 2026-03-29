@@ -14,7 +14,7 @@ private struct SMCKeyInfoData {
 private struct SMCParamStruct {
     var key: UInt32 = 0
     var vers: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8) = (0, 0, 0, 0, 0, 0)
-    var plimitData: (UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16, UInt16) = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    var plimitData: (UInt16, UInt16, UInt32, UInt32, UInt32) = (0, 0, 0, 0, 0)
     var keyInfo: SMCKeyInfoData = SMCKeyInfoData()
     var padding: UInt16 = 0
     var result: UInt8 = 0
